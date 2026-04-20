@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: TaskFlow
+      POSTGRES_PASSWORD: veryhardpass
+      POSTGRES_DB:  postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - postgres_net
+
+volumes:
+  pgdata:
+
+networks:
+  postgres_net:
