@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Role } from "./enums/role.enum";
+import { Task } from "../task/task.entity";
 
 @Entity('users')
 export class User {
@@ -18,6 +19,9 @@ export class User {
     @Column({type:'enum',enum:Role,default:Role.USER})
     role:Role;
 
+    @OneToMany(() => Task, (task) => task.user)
+    tasks:Task[];
+    
     @CreateDateColumn()
     createdAt:Date;
 

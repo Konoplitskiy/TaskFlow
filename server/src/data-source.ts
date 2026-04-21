@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import * as dotenv from 'dotenv';
 import { User } from './modules/user/user.entity';
+import { Task } from './modules/task/task.entity';
 
 dotenv.config();
 const AppDataSource = new DataSource({
@@ -11,7 +12,7 @@ const AppDataSource = new DataSource({
   username: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
-  entities: [User],
+  entities: [User, Task],
   migrations: ['src/migrations/*.ts'],
   synchronize: false,
   logging: true,
