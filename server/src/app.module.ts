@@ -5,6 +5,7 @@ import { typeOrmConfig } from './config/typeorm.config';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { TaskModule } from './modules/task/task.module';
+import { ProjectModule } from './modules/project/project.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -16,7 +17,8 @@ import { TaskModule } from './modules/task/task.module';
   }),
   UserModule,
   AuthModule,
-  TaskModule
+  TaskModule,
+  ProjectModule
 ],
   controllers: [],
   providers: [],
