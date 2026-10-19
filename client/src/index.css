@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-jira-navy: #1d2125;
+  --color-jira-navy-hover: #22272b;
+  --color-jira-blue: #0c66e4;
+  --color-jira-blue-hover: #0055cc;
+  --color-jira-blue-soft: #e9f2ff;
+  --color-jira-text: #172b4d;
+  --color-jira-subtle: #626f86;
+  --color-jira-border: #dcdfe4;
+  --color-jira-bg: #f7f8f9;
+  --color-jira-column: #f1f2f4;
+  --color-jira-success: #22a06b;
+  --color-jira-warning: #e2b203;
+  --color-jira-danger: #c9372c;
+  --color-jira-chip: #dddee1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-jira-text);
+  background: var(--color-jira-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c7d0;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .jira-btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded px-3 py-1.5 text-sm font-semibold transition;
+  }
+
+  .jira-btn-primary {
+    @apply inline-flex items-center justify-center gap-1.5 rounded px-3 py-1.5 text-sm font-semibold transition bg-jira-blue text-white hover:bg-jira-blue-hover active:scale-[0.98] disabled:opacity-50;
+  }
+
+  .jira-btn-subtle {
+    @apply inline-flex items-center justify-center gap-1.5 rounded px-3 py-1.5 text-sm font-semibold transition border border-jira-border bg-white text-jira-text hover:bg-jira-bg disabled:opacity-50;
+  }
+
+  .jira-btn-danger {
+    @apply inline-flex items-center justify-center gap-1.5 rounded px-3 py-1.5 text-sm font-semibold transition bg-red-50 text-jira-danger hover:bg-red-100 disabled:opacity-50;
+  }
+
+  .jira-input {
+    @apply w-full rounded border border-jira-border bg-white px-3 py-2 text-sm text-jira-text outline-none transition placeholder:text-jira-subtle focus:border-jira-blue focus:ring-2 focus:ring-jira-blue-soft;
+  }
+
+  .jira-label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-jira-subtle;
+  }
+
+  .jira-card {
+    @apply rounded border border-jira-border bg-white shadow-sm;
+  }
+
+  .jira-modal-backdrop {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-[#091e42]/52 px-4 backdrop-blur-[1px];
+  }
+
+  .jira-modal {
+    @apply relative w-full max-w-lg rounded-lg border border-jira-border bg-white p-6 shadow-2xl;
+  }
+
+  .jira-page-title {
+    @apply text-[22px] font-semibold leading-tight text-jira-text;
+  }
+
+  .jira-page-subtitle {
+    @apply mt-0.5 text-sm text-jira-subtle;
+  }
+}
